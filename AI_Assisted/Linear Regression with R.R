@@ -20,10 +20,10 @@ anscombe <- data.frame(
   y4 = c(6.58, 5.76,  7.71, 8.84, 8.47, 7.04, 5.25, 12.5, 5.56, 7.91, 6.89))
 
 # perform regression analysis on the four datasets
-with(anscombe, print(summary(lm(y1 ~ x1, data = anscombe))))
-with(anscombe, print(summary(lm(y2 ~ x2, data = anscombe))))
-with(anscombe, print(summary(lm(y3 ~ x3, data = anscombe))))
-with(anscombe, print(summary(lm(y4 ~ x4, data = anscombe))))
+for (i in 1:4) {
+  formula <- as.formula(paste0("y", i, " ~ x", i))
+  print(summary(lm(formula, data = anscombe)))
+}
 
 # conclude and print the time it takes to run the program
 end.time <- Sys.time()

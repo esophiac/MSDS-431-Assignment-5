@@ -23,18 +23,12 @@ anscombe = pd.DataFrame({'x1' : [10, 8, 13, 9, 11, 14, 6, 4, 12, 7, 5],
     'y3' : [7.46, 6.77, 12.74, 7.11, 7.81, 8.84, 6.08, 5.39, 8.15, 6.42, 5.73],
     'y4' : [6.58, 5.76, 7.71, 8.84, 8.47, 7.04, 5.25, 12.5, 5.56, 7.91, 6.89]})
 
-## run the linear regression tests
-slope1, intercept1, r_value1, p_value1, std_err1 = linregress(anscombe['x1'], anscombe['y1'])
-print(round(slope1, 2), round(intercept1, 2))
+# Loop through the datasets
+# Loop through the datasets
+for i in range(1, 5):
+    slope, intercept, _, _, _ = linregress(anscombe[f'x{i}'], anscombe[f'y{i}'])
+    print(f"Dataset {i}: Slope = {round(slope, 2)}, Intercept = {round(intercept, 2)}")
 
-slope2, intercept2, r_value2, p_value2, std_err2 = linregress(anscombe['x2'], anscombe['y2'])
-print(round(slope2, 2), round(intercept2, 2))
-
-slope3, intercept3, r_value3, p_value3, std_err3 = linregress(anscombe['x3'], anscombe['y3'])
-print(round(slope3, 2), round(intercept3, 2))
-
-slope4, intercept4, r_value4, p_value4, std_err4 = linregress(anscombe['x4'], anscombe['y4'])
-print(round(slope4, 2), round(intercept4, 2))
 
 print("%.2f seconds" % (time.time() - start_time))
 
