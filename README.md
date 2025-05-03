@@ -34,12 +34,17 @@ The Automated Code Generation provided by Copilot when coding in VSCode was not 
 
 ### AI-Assisted Programming
 For AI-Assisted programming, I used the Github Copilot in VSCode to make adjustments and edits to the code that I had already created. Initially, the Chatbot calculated the linear regression coefficients without using a package, so I had to specify which package I wanted it to use. I have mentioned before that I liked the test cases it produced, but there did reach a point where it was testing code that could be addressed in the functions themselves. Copilot's tendency to favor for-loops was especially impactful when generating code for Python and R. In these cases, the code ran much slower so I had to specify to relax on the for-loops. It did produce more complete code immediately after I asked for Python and R. I was able to coax it to produce idiomatic Go code, but I had to specify that is what I wanted.
+
+The full log for completing this assignment with Github Copilot can be found in Week 5 Assignment VSCode Log.txt.
+
 ### AI Generated Code
-- Step-by-Step Review of Work
-- Prompt review
-- Describe how files were obtained
+The first thing I did with ChatGPT was ask if it was familiar with the Anscombe Quartet. It said it was, so I asked it to generate the full Go code for calculating the linear regression coefficients. It also didn't initially use any packages besides fmt, and also got the Anscombe Quartet wrong in the body of the code. When I asked it to fix it, it moved everything out of functions and into the body of the Go code. I then worked on making the code more idiomatic. It performed similiarly with R and Python. I might have gotten better results if I had specified specific packages that I know are effective, but for the sake of this test I was going to run the programs that ChatGPT gave me as is. The only time I specified a package/library was to give it the same instructions for Assignment 4.
+
+The full log for completing this assignment with ChatGPT can be found in Week 5 Assignment ChatGPT Log.txt.
 
 ## Background
+This assignment tested how AI-assisted programming performs in comparison to the task set in Assignment 4; calculate the linear regression coefficients of the Anscombe Quartet using the [stats package](https://pkg.go.dev/github.com/montanaflynn/stats).
+
 The purpose of the Anscombe Quartet is to demonstrate how it is important to visualize datasets instead of relying on pure data. Each of the datasets in the quartet returns identifical regression coefficients, despite being very different. 
 
 For more information, see:
@@ -47,25 +52,33 @@ Anscombe, F. J. 1973, February. "Graphs in Statistical Analysis." *The American 
 
 
 ## Roles of Programs and Data
-Note any training materials.
+No training materials were used in this assignment. To make sure that the Chatbots had access to the Anscombe Quartet, I first asked them if they did. I had to provide a small correction to ChatGPT, but that was it.
+
+To make it easier to organize the project, I created sub-directories for AI_Assisted and AI_Generated, which house the files relevant to each test. Other files, including logs for discussions with the chat agents, are also in the repository.
+
+- Assignment_5 Notes.txt: additional notes and observations relevant to the tests
+- Week 5 Assignment ChatGPT Log.txt: the log of the conversation with ChatGPT for the AI Generated test
+- Week 5 Assignment VSCode Log.txt: the log of the conversation with Github Copilot for the AI Assisted test
+- README.md: the readme file for the repository
 
 ### AI_Assisted
-- go.mod:
-- go.sum:
-- Linear Regression with R.R:
-- main_test.go:
-- main.go:
-- Python File for Assignment 4.py:
+- Assignment_5.exe: the executable for this part of the project. Assembled on Windows.
+- go.mod:defines the module's properties (for the AI_Assisted Go files)
+- go.sum: record of the library the AI_Assisted project depends on
+- Linear Regression with R.R: the file to test the Anscombe quartet with the R programming language. The standard library in R was used.
+- main_test.go: tests and benchmarks the fuctions in the main.go file in this directory
+- main.go: the file to test the Anscombe quartet with the Go programming language with AI assistance. The stats library was used.
+- Python File for Assignment 4.py: the file to test the Anscombe quartet with the Python programming language. Used the same packages as Assignment 4. 
 
 ### AI_Generated
-- go.mod:
-- go.sum:
-- Linear Regression with R.R:
-- main_test.go:
-- main.go:
-- Python File for Assignment 4.py:
+- AI_generated.exe: the executable for this part of the project. Assembled on Windows.
+- go.mod: defines the module's properties (for the AI_Generated Go files)
+- go.sum: record of the library the AI_Generated project depends on
+- Linear Regression with R.R: the file to test the Anscombe quartet with the R programming language. The standard library in R was used. ChatGPT also pulled the Anscombe Quartet from the standard data that R provides instead of defining it itself. 
+- main_test.go: tests and benchmarks the fuctions in the main.go file in this directory
+- main.go: the file to test the Anscombe quartet with the Go programming language with AI-generated code. The stats library was used.
+- Python File for Assignment 4.py: the file to test the Anscombe quartet with the Python programming language. Only used numpy for the calculations.
 
 ## Application
-text
-
+An executable for each part of this project was created using Windows and is included in the subfolders in this repository. To create your own executable, run **go build** in the same directory as the go program. For more information, see the Gopher documentation on creating an executable [here](https://go.dev/doc/tutorial/compile-install).
 
